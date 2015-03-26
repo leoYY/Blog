@@ -54,5 +54,6 @@ main() {
 }
 ```
 此处swapcontext,有对g_context进行初始化，相当于记录当前运行上下文并且以当前执行点为入口点初始化g_context
-而往往对于函数foo中得swapcontext，类似lua或go语言中得yield关键字作用，但是由于swapcontext重新初始化了第一
-个参数得context，因此在实现yield得时候需要记录当前context得栈上下文.
+而往往对于函数foo中得swapcontext，类似lua或go语言中得yield关键字作用. 此处user_context得stack存储在全局
+stack变量中，对于存在多个foo函数执行时，会需要分别存储以便可达到分别恢复到不同上下文.**注意**在存储栈数据
+得时候，由于栈得内存地址方向是减少得，所以要从stack＋STACK_SIZE往回计算stack使用长度.
