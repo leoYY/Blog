@@ -9,3 +9,9 @@
 - git checkout master         
 
 - git push origin master        // 只push master上的代码
+
+对于多分支开发仍然存在，之前一个分支提交的代码在这个分支中提交pr的时候带上了
+- git stash
+- git stash list
+- git stash pop
+- git stash apply
